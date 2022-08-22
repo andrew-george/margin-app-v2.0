@@ -1,0 +1,37 @@
+@use 'variables' as *;
+
+.collapse {
+	width: 0px !important;
+}
+
+.hidden {
+	display: none;
+}
+.selected {
+	background-color: #eaeaea;
+	color: #000;
+	border-radius: 3px;
+}
+
+.selected-darkmode {
+	background-color: #090909;
+	color: #eee;
+	border-radius: 3px;
+}
+.dark-mode {
+	background-color: #090909;
+	color: white;
+}
+.dark-sidebar {
+	background-color: #030303 !important;
+	color: white !important;
+}
+.serif {
+	font-family: $serif;
+}
+.sans {
+	font-family: $sans;
+}
+.mono {
+	font-family: $mono;
+}

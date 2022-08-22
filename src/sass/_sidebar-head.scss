@@ -1,0 +1,16 @@
+@use 'variables' as *;
+
+.head {
+	margin-bottom: 2rem;
+	.greeting {
+		* {
+			margin: 0;
+		}
+
+		.name {
+			font-family: $serif;
+			font-size: 1.2rem;
+			margin-right: 2rem;
+		}
+	}
+}

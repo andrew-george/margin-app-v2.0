@@ -1,0 +1,44 @@
+.pages {
+	width: 100%;
+
+	.pages-container {
+		display: flex;
+		flex-direction: column;
+		text-align: left;
+		margin-left: 1.5rem;
+		max-height: 70vh;
+		overflow-x: hidden;
+		overflow-y: auto;
+
+		&::-webkit-scrollbar {
+			width: 2px; /* width of the entire scrollbar */
+			border-radius: 30px;
+		}
+
+		&::-webkit-scrollbar-track {
+			background: #d8d8d8a6; /* color of the tracking area */
+			border-radius: 30px;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background-color: rgb(64, 64, 64); /* color of the scroll thumb */
+			border-radius: 30px; /* roundness of the scroll thumb */
+		}
+
+		.page {
+			padding: 0.4rem 1rem;
+			margin: 0.3rem 0;
+			max-width: 100%;
+			cursor: pointer;
+
+			.body {
+				margin: 0.2rem 0;
+				height: 15px;
+				overflow-wrap: normal;
+				overflow: hidden;
+				font-size: 0.7rem;
+				color: #aaa;
+			}
+		}
+	}
+}

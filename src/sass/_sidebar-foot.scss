@@ -1,0 +1,28 @@
+footer {
+	display: flex;
+	flex-direction: column;
+	margin-top: auto;
+	cursor: pointer;
+
+	.bottom {
+		display: flex;
+		justify-content: center;
+		margin-top: 1rem;
+	}
+
+	.copyright {
+		text-align: center;
+		font-size: 0.65rem;
+		max-width: 120px;
+		color: #aaa;
+		transition: 0.2s ease all;
+		text-decoration: none;
+
+		&:hover {
+			cursor: pointer;
+		}
+		.name {
+			font-weight: 700;
+		}
+	}
+}
