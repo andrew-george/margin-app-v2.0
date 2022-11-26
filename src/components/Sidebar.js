@@ -1,25 +1,10 @@
-import { useSelector, useDispatch } from 'react-redux';
-import SidebarHead from './SidebarHead';
-import SidebarPages from './SidebarPages';
-import SidebarFoot from './SidebarFoot';
-import { sidebarActions, themeActions } from '../store';
+import { useSelector } from 'react-redux'
+import { SidebarFoot, SidebarHead, SidebarPages, Toolbar } from './index'
 
 const Sidebar = () => {
-	const dispatch = useDispatch();
+	const darkTheme = useSelector(state => state.ui.darkTheme)
+	const sideBarIsCollapsed = useSelector(state => state.ui.isSidebarOpen)
 
-	//- STATE
-	//* global state (store)
-	const darkTheme = useSelector(state => state.theme);
-	const sideBarIsCollapsed = useSelector(state => state.sidebar);
-
-	//* helper functions
-	function toggleSideBarCollapse() {
-		dispatch(sidebarActions.toggleSidebarCollapse());
-	}
-
-	const toggleThemeHandler = () => dispatch(themeActions.toggleDarkTheme());
-
-	//- RENDER
 	return (
 		<aside className='sidebar'>
 			<div
@@ -27,23 +12,13 @@ const Sidebar = () => {
 					darkTheme ? 'dark-sidebar' : ''
 				}`}
 			>
-				<SidebarHead />
+				{sideBarIsCollapsed && <SidebarHead />}
 				<SidebarPages />
 				<SidebarFoot />
 			</div>
-
-			<div className={`toolbar ${darkTheme ? 'dark-sidebar' : ''}`}>
-				<i
-					onClick={toggleSideBarCollapse}
-					className='fa-solid fa-bars hamburger'
-				></i>
-				<i
-					onClick={toggleThemeHandler}
-					className='fa-solid fa-circle-half-stroke theme-toggler'
-				></i>
-			</div>
+			<Toolbar />
 		</aside>
-	);
-};
+	)
+}
 
-export default Sidebar;
+export default Sidebar

@@ -1,7 +1,16 @@
 @use 'variables' as *;
 
 .head {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	margin-bottom: 2rem;
+
+	.image {
+		width: 50px;
+		border-radius: 50%;
+		margin: 0 10px;
+	}
 	.greeting {
 		* {
 			margin: 0;
@@ -10,7 +19,6 @@
 		.name {
 			font-family: $serif;
 			font-size: 1.2rem;
-			margin-right: 2rem;
 		}
 	}
 }

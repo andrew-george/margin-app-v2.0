@@ -1,9 +1,9 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React from 'react'
+import { useSelector } from 'react-redux'
 
-const SidebarPageItem = ({ title, body, onClick, id }) => {
-	const activeNoteId = useSelector(state => state.notes.activeNote);
-	const darkTheme = useSelector(state => state.theme);
+const SidebarPageItem = ({ title, body, onClick, id, date }) => {
+	const activeNoteId = useSelector(state => state.notes.activeNote.id)
+	const darkTheme = useSelector(state => state.ui.darkTheme)
 
 	return (
 		<div
@@ -19,7 +19,8 @@ const SidebarPageItem = ({ title, body, onClick, id }) => {
 			<p className='body' data-id={id}>
 				{body}
 			</p>
+			<p className='sidebar-date'>{date}</p>
 		</div>
-	);
-};
-export default SidebarPageItem;
+	)
+}
+export default SidebarPageItem
