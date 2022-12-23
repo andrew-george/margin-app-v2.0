@@ -9,7 +9,7 @@ import { clearUser, setUser } from './features/user/userSlice'
 import './sass/index.scss'
 
 function App() {
-	const { isLoading, user, logout } = useAuth0()
+	const { isLoading, user } = useAuth0()
 	const darkTheme = useSelector(state => state.ui.darkTheme)
 	const isSidebarOpen = useSelector(state => state.ui.isSidebarOpen)
 
@@ -36,9 +36,14 @@ function App() {
 
 	if (isLoading) {
 		return (
-			<div className='loading'>
+			<div className={`loading ${darkTheme ? 'dark-mode' : ''}`}>
 				<img src={logo} alt='logo' />
-				<ReactLoading type='bubbles' color='#000' height={100} width={100} />
+				<ReactLoading
+					type='bubbles'
+					color={`${darkTheme ? '#fff' : '#000'}`}
+					height={100}
+					width={100}
+				/>
 			</div>
 		)
 	}
