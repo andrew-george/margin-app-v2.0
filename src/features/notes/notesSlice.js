@@ -9,6 +9,10 @@ const generateDate = () => {
 	return moment().calendar()
 }
 
+const setNotesLocalStorage = state => {
+	localStorage.setItem('notes', JSON.stringify(state))
+}
+
 const notesSlice = createSlice({
 	name: 'notes',
 	initialState,
@@ -20,31 +24,37 @@ const notesSlice = createSlice({
 				body: 'Type Here...',
 				date: generateDate(),
 			})
+
+			setNotesLocalStorage(state)
 		},
 
 		editNote(state, { payload }) {
 			state.activeNote[payload.name] = payload.value
-			state.notes.find(note => note.id === state.activeNote.id)[payload.name] =
-				payload.value
+			state.notes.find(note => note.id === state.activeNote.id)[payload.name] = payload.value
 
 			state.activeNote.date = generateDate()
-			state.notes.find(note => note.id === state.activeNote.id).date =
-				generateDate()
+			state.notes.find(note => note.id === state.activeNote.id).date = generateDate()
+
+			setNotesLocalStorage(state)
 		},
 
 		setActiveNote(state, { payload }) {
-			state.activeNote =
-				state.notes.find(note => note.id === payload) ||
-				state.notes[state.notes.length - 1]
+			state.activeNote = state.notes.find(note => note.id === payload) || state.notes[state.notes.length - 1]
+
+			setNotesLocalStorage(state)
 		},
 
 		deleteActiveNote(state) {
 			state.notes = state.notes.filter(note => note.id !== state.activeNote.id)
+
+			setNotesLocalStorage(state)
+		},
+		getNotesLocalStorage(state) {
+			return JSON.parse(localStorage.getItem('notes')) || state
 		},
 	},
 })
 
-export const { createNote, setActiveNote, deleteActiveNote, editNote } =
-	notesSlice.actions
+export const { createNote, setActiveNote, deleteActiveNote, editNote, getNotesLocalStorage } = notesSlice.actions
 
 export default notesSlice.reducer

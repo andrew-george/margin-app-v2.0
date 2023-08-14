@@ -23,11 +23,6 @@ const uiSlice = createSlice({
 		},
 	},
 })
-export const {
-	toggleDarkTheme,
-	toggleSidebarCollapse,
-	setUiLocalStorage,
-	getUiLocalStorage,
-} = uiSlice.actions
+export const { toggleDarkTheme, toggleSidebarCollapse, setUiLocalStorage, getUiLocalStorage } = uiSlice.actions
 
 export default uiSlice.reducer
