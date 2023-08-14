@@ -1,8 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,100;8..144,200;8..144,300;8..144,400;8..144,500;8..144,600;8..144,700;8..144,800;8..144,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap");
 :root {
   box-sizing: border-box;
   margin: 0;
@@ -30,7 +31,7 @@ button {
 }
 
 body {
-  font-family: "Karla";
+  font-family: "Roboto";
 }
 
 .app {
@@ -117,8 +118,8 @@ body {
   margin: 0;
 }
 .head .greeting .name {
-  font-family: "DM Serif Display";
-  font-size: 1.2rem;
+  font-weight: 500;
+  font-size: 1.1rem;
 }
 
 .pages {
@@ -206,7 +207,7 @@ footer .copyright .name {
   cursor: pointer;
 }
 .hero-area .main-title {
-  font-family: "DM Serif Display";
+  font-family: "Roboto Serif";
   font-size: 2rem;
   border: none;
   resize: none;
@@ -226,13 +227,14 @@ footer .copyright .name {
 }
 .hero-area .hero-date {
   padding: 0.8rem 0;
+  opacity: 0.7;
+  font-size: 0.8rem;
 }
 .hero-area .body {
   border: none;
   height: 100vh;
-  font-family: "Karla";
+  font-family: "Roboto";
   font-size: 1rem;
-  font-weight: 500;
   resize: none;
   overflow-y: auto;
   margin-top: 1rem;
@@ -258,13 +260,16 @@ footer .copyright .name {
   align-items: center;
 }
 .empty * {
-  font-family: "DM Serif Display";
+  font-family: "Roboto";
 }
 .empty .add-note {
   display: flex;
   align-items: center;
   padding: 0.5rem;
   border-radius: 10px;
+}
+.empty .add-note button {
+  font-weight: 500;
 }
 .empty .title {
   margin-bottom: 1rem;
@@ -301,13 +306,13 @@ footer .copyright .name {
 }
 
 .serif {
-  font-family: "DM Serif Display";
+  font-family: "Roboto Serif";
 }
 
 .sans {
-  font-family: "Karla";
+  font-family: "Roboto";
 }
 
 .mono {
-  font-family: "Courier Prime";
+  font-family: "Roboto Mono";
 }/*# sourceMappingURL=index.css.map */
