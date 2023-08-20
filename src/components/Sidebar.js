@@ -7,11 +7,7 @@ const Sidebar = () => {
 
 	return (
 		<aside className='sidebar'>
-			<div
-				className={`side-nav ${sideBarIsCollapsed ? '' : 'collapse'} ${
-					darkTheme ? 'dark-sidebar' : ''
-				}`}
-			>
+			<div className={`side-nav ${sideBarIsCollapsed ? '' : 'collapse'} ${darkTheme ? 'dark-sidebar' : ''}`}>
 				{sideBarIsCollapsed && <SidebarHead />}
 				<SidebarPages />
 				<SidebarFoot />

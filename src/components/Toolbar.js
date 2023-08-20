@@ -4,6 +4,7 @@ import { TbBulb, TbBulbOff } from 'react-icons/tb'
 import { useDispatch, useSelector } from 'react-redux'
 import { toggleDarkTheme, toggleSidebarCollapse } from '../features/ui/uiSlice'
 import AddNoteBtn from './AddNoteBtn'
+import FontSwitcher from './FontSwitcher'
 import LogButton from './LogButton'
 
 const Toolbar = () => {
@@ -13,24 +14,16 @@ const Toolbar = () => {
 	return (
 		<div className={`toolbar ${darkTheme ? 'dark-sidebar' : ''}`}>
 			<div className='toolbar-top'>
-				<FaBars
-					onClick={() => dispatch(toggleSidebarCollapse())}
-					className='hamburger'
-				></FaBars>
+				<FaBars onClick={() => dispatch(toggleSidebarCollapse())} className='hamburger'></FaBars>
 				<LogButton />
 			</div>
 			<div className='toolbar-bottom'>
 				<AddNoteBtn />
+				<FontSwitcher />
 				{darkTheme ? (
-					<TbBulb
-						onClick={() => dispatch(toggleDarkTheme())}
-						className='theme-toggler'
-					/>
+					<TbBulb onClick={() => dispatch(toggleDarkTheme())} className='theme-toggler' />
 				) : (
-					<TbBulbOff
-						onClick={() => dispatch(toggleDarkTheme())}
-						className='theme-toggler'
-					/>
+					<TbBulbOff onClick={() => dispatch(toggleDarkTheme())} className='theme-toggler' />
 				)}
 			</div>
 		</div>

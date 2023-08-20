@@ -2,11 +2,8 @@ import React from 'react'
 import { FaRegTrashAlt } from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux/es/exports'
 import Swal from 'sweetalert2'
-import {
-	deleteActiveNote,
-	editNote,
-	setActiveNote,
-} from '../features/notes/notesSlice'
+import { deleteActiveNote, editNote, setActiveNote } from '../features/notes/notesSlice'
+
 import AddNoteBtn from './AddNoteBtn'
 
 const PreviewPage = () => {
@@ -67,8 +64,7 @@ const PreviewPage = () => {
 				name='title'
 				value={activeNote.title}
 				onChange={changeHandler}
-				onBlur={blurHandler}
-			></textarea>
+				onBlur={blurHandler}></textarea>
 			<div className='hero-date'>Last edited : {activeNote.date}</div>
 			<textarea
 				className={`body ${darkTheme ? 'dark-mode' : ''}`}
@@ -76,8 +72,7 @@ const PreviewPage = () => {
 				value={activeNote.body}
 				name='body'
 				onChange={changeHandler}
-				onBlur={blurHandler}
-			></textarea>
+				onBlur={blurHandler}></textarea>
 			<FaRegTrashAlt onClick={deletePageHandler} className='delete-btn' />
 		</div>
 	)

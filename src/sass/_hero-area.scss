@@ -18,11 +18,9 @@
 	}
 
 	.main-title {
-		font-family: $serif;
 		font-size: 2rem;
 		border: none;
 		resize: none;
-		line-height: 0.6;
 		margin-top: 2rem;
 		@media (min-width: 768px) {
 			font-size: 3rem;
@@ -44,7 +42,7 @@
 	.body {
 		border: none;
 		height: 100vh;
-		font-family: $sans;
+		// font-family: $sans;
 		font-size: 1rem;
 		resize: none;
 		overflow-y: auto;
@@ -74,10 +72,6 @@
 	justify-content: center;
 	align-items: center;
 
-	* {
-		font-family: $sans;
-	}
-
 	.add-note {
 		display: flex;
 		align-items: center;
@@ -86,6 +80,7 @@
 
 		button {
 			font-weight: 500;
+			font-family: inherit;
 		}
 	}
 

@@ -13,6 +13,7 @@ function App() {
 	const { isLoading, user } = useAuth0()
 	const darkTheme = useSelector(state => state.ui.darkTheme)
 	const isSidebarOpen = useSelector(state => state.ui.isSidebarOpen)
+	const fontStyle = useSelector(state => state.ui.fontStyle)
 
 	const dispatch = useDispatch()
 
@@ -38,7 +39,7 @@ function App() {
 	useEffect(() => {
 		dispatch(setUiLocalStorage())
 		// eslint-disable-next-line
-	}, [darkTheme, isSidebarOpen])
+	}, [darkTheme, isSidebarOpen, fontStyle])
 
 	if (isLoading) {
 		return (
@@ -50,7 +51,7 @@ function App() {
 	}
 
 	return (
-		<div className={`app ${darkTheme ? 'dark-mode' : ''}`}>
+		<div className={`app ${fontStyle} ${darkTheme ? 'dark-mode' : ''}`}>
 			<Sidebar />
 			<PreviewPage />
 		</div>

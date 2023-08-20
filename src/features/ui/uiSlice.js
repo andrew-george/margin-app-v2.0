@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
 	darkTheme: false,
 	isSidebarOpen: true,
+	fontStyle: 'sans', // sans - serif - mono
 }
 
 const uiSlice = createSlice({
@@ -15,6 +16,9 @@ const uiSlice = createSlice({
 		toggleSidebarCollapse(state) {
 			state.isSidebarOpen = !state.isSidebarOpen
 		},
+		setFontStyle(state, { payload }) {
+			state.fontStyle = payload
+		},
 		setUiLocalStorage(state) {
 			localStorage.setItem('ui', JSON.stringify(state))
 		},
@@ -23,6 +27,7 @@ const uiSlice = createSlice({
 		},
 	},
 })
-export const { toggleDarkTheme, toggleSidebarCollapse, setUiLocalStorage, getUiLocalStorage } = uiSlice.actions
+export const { toggleDarkTheme, toggleSidebarCollapse, setUiLocalStorage, getUiLocalStorage, setFontStyle } =
+	uiSlice.actions
 
 export default uiSlice.reducer
