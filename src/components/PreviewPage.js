@@ -1,4 +1,5 @@
 import React from 'react'
+import ContentEditable from 'react-contenteditable'
 import { FaRegTrashAlt } from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux/es/exports'
 import Swal from 'sweetalert2'
@@ -12,21 +13,6 @@ const PreviewPage = () => {
 	const darkTheme = useSelector(state => state.ui.darkTheme)
 	const notes = useSelector(state => state.notes.notes)
 	const activeNote = useSelector(state => state.notes.activeNote)
-
-	function changeHandler(e) {
-		const { name, value } = e.target
-		dispatch(editNote({ name, value }))
-	}
-
-	function blurHandler(e) {
-		const { name, value } = e.target
-		if (!value && name === 'title') {
-			dispatch(editNote({ name, value: 'Untitled' }))
-		}
-		if (!value && name === 'body') {
-			dispatch(editNote({ name, value: 'Type Here...' }))
-		}
-	}
 
 	function deletePageHandler() {
 		Swal.fire({
@@ -57,22 +43,38 @@ const PreviewPage = () => {
 
 	return (
 		<div className={`hero-area ${darkTheme ? 'dark-mode' : ''}`}>
-			<textarea
+			<ContentEditable
 				className={`main-title ${darkTheme ? 'dark-mode' : ''}`}
-				placeholder='Page title..'
-				maxLength='22'
-				name='title'
-				value={activeNote.title}
-				onChange={changeHandler}
-				onBlur={blurHandler}></textarea>
+				html={activeNote.title}
+				onChange={e => dispatch(editNote({ name: 'title', value: e.target.value }))}
+				onBlur={e => {
+					if (!e.target.textContent) {
+						dispatch(editNote({ name: 'title', value: 'Untitled' }))
+					}
+				}}
+				onFocus={e => {
+					if (e.target.textContent === 'Untitled') {
+						dispatch(editNote({ name: 'title', value: '' }))
+					}
+				}}
+			/>
 			<div className='hero-date'>Last edited : {activeNote.date}</div>
-			<textarea
+			<ContentEditable
 				className={`body ${darkTheme ? 'dark-mode' : ''}`}
-				placeholder='Type Here...'
-				value={activeNote.body}
-				name='body'
-				onChange={changeHandler}
-				onBlur={blurHandler}></textarea>
+				html={activeNote.body}
+				onChange={e => dispatch(editNote({ name: 'body', value: e.target.value }))}
+				onBlur={e => {
+					if (!e.target.textContent) {
+						dispatch(editNote({ name: 'body', value: 'Type Here...' }))
+					}
+				}}
+				onFocus={e => {
+					if (e.target.textContent === 'Type Here...') {
+						dispatch(editNote({ name: 'body', value: '' }))
+					}
+				}}
+			/>
+
 			<FaRegTrashAlt onClick={deletePageHandler} className='delete-btn' />
 		</div>
 	)

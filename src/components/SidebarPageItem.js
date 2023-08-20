@@ -5,19 +5,27 @@ const SidebarPageItem = ({ title, body, onClick, id, date }) => {
 	const activeNoteId = useSelector(state => state.notes.activeNote.id)
 	const darkTheme = useSelector(state => state.ui.darkTheme)
 
+	const parser = new DOMParser()
+	const HTMLtitle = parser.parseFromString(title, 'text/html')
+	const parsedTitle = HTMLtitle.getElementsByTagName('body')[0].innerText
+
+	const HTMLbody = parser.parseFromString(body, 'text/html')
+	const parsedbody = HTMLbody.getElementsByTagName('body')[0].innerText
+
+	console.log()
+
 	return (
 		<div
 			onClick={onClick}
 			className={`page ${id === activeNoteId ? 'selected' : ''} ${
 				darkTheme && id === activeNoteId ? 'selected-darkmode' : ''
 			}`}
-			data-id={id}
-		>
+			data-id={id}>
 			<div className='title' data-id={id}>
-				{title}
+				{parsedTitle}
 			</div>
 			<p className='body' data-id={id}>
-				{body}
+				{parsedbody}
 			</p>
 			<p className='sidebar-date'>{date}</p>
 		</div>
